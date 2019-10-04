@@ -12,5 +12,6 @@ Dependencias:
 - ✔️ [react-navigation]()
 - ✔️ [react-native-gesture-handler]()
 - ✔️ [react-native-reanimated]()
+- ✔️ [axios]()
 
 ---
