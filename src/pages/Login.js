@@ -3,15 +3,20 @@ import { View, KeyboardAvoidingView, Platform, Image, Text, TextInput, Touchable
 
 import api from '../services/api';
 
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
 export default function Login(){
     const [email, setEmail] = useState('');
     const [techs, setTechs] = useState('');
 
     async function handleSubmit(){
-        console.log(email);
-        console.log(techs); 
+        const response = await api.post('/sessions', {
+            email
+        })
+            
+        const { _id } = response.data;
+
+        console.log(_id)
     }
 
     return (
@@ -27,6 +32,7 @@ export default function Login(){
                     autoCapitalize="none"
                     value={email}
                     onChangeText={setEmail}
+                    // onChangeText={text => setEmail(text)}
                 />
 
                 <Text style={styles.label}>TECNOLOGIAS * </Text>
